@@ -99,10 +99,14 @@ RUN apt-get install  -y --allow-downgrades \
     git ninja-build ccache libopenblas-dev \
     libopencv-dev cmake
 
+RUN pip3 install --upgrade setuptools && \
+    pip3 install --upgrade pip 
+RUN pip3 install scikit-build --user
 RUN pip3 install cmake --user
 
 # install mxnet
-ARG FRAMEWORK=mxnet_cu100-1.6.0b20200124-py2.py3-none-manylinux1_x86_64.whl
+#ARG FRAMEWORK=mxnet_cu100-1.6.0b20200124-py2.py3-none-manylinux1_x86_64.whl
+ARG FRAMEWORK=mxnet_cu100-1.6.0b20200204-py2.py3-none-manylinux1_x86_64.whl
 COPY $FRAMEWORK .
 RUN pip3 install $FRAMEWORK
 

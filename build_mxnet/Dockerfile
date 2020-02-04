@@ -19,8 +19,8 @@ RUN apt-get update && apt-get install -y \
     cmake \
     python \
     python-dev \
-    python3 \
-    python3-dev \
+    python3.5 \
+    python3.5-dev \
     build-essential \
     automake \
     libtool \
@@ -31,8 +31,8 @@ RUN apt-get update && apt-get install -y \
 
 # Install pip
 RUN wget -q https://bootstrap.pypa.io/get-pip.py && \
-    python3 get-pip.py && \
-    python2 get-pip.py && \
+    python3.5 get-pip.py
+RUN python2 get-pip.py && \
     rm get-pip.py
 
 # Install pip packages
